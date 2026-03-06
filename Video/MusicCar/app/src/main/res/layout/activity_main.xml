@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1A2E">
+
+    <!-- Tab bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="#16213E">
+
+        <Button
+            android:id="@+id/btnTabMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🎵 NHẠC"
+            android:textColor="#E94560"
+            android:backgroundTint="#1A1A2E"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnTabVideo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🎬 VIDEO"
+            android:textColor="#AAAAAA"
+            android:backgroundTint="#16213E"/>
+
+    </LinearLayout>
+
+    <!-- Nội dung chính: chia 2 cột LEFT | RIGHT -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!-- CỘT TRÁI: Tên bài + Tiến trình -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp">
+
+            <!-- Tên bài hát -->
+            <TextView
+                android:id="@+id/tvSongTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chưa có bài hát"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Nghệ sĩ -->
+            <TextView
+                android:id="@+id/tvArtist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unknown Artist"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- SeekBar tiến trình -->
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressTint="#E94560"
+                android:thumbTint="#E94560"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Thời gian -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvCurrentTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0:00"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tvTotalTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <!-- Nút điều khiển nhạc -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnPrev"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:text="⏮"
+                    android:textSize="18sp"
+                    android:backgroundTint="#16213E"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="12dp"/>
+
+                <Button
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:text="▶"
+                    android:textSize="22sp"
+                    android:backgroundTint="#E94560"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="12dp"/>
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:text="⏭"
+                    android:textSize="18sp"
+                    android:backgroundTint="#16213E"
+                    android:textColor="#FFFFFF"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Divider dọc -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#2A2A4A"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- CỘT PHẢI: Volume control -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <!-- Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔊  ÂM LƯỢNG"
+                android:textColor="#AAAAAA"
+                android:textSize="12sp"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- SeekBar volume -->
+            <SeekBar
+                android:id="@+id/seekBarVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="80"
+                android:progressTint="#E94560"
+                android:thumbTint="#E94560"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Nút - / % / + -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btnVolumeDown"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="-"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#16213E"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="12dp"/>
+
+                <TextView
+                    android:id="@+id/tvVolumePercent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="80%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btnVolumeUp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="+"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#16213E"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
