@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ── Video full screen (lớp đáy) ──────────────────────────────────── -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabBar"
+        android:layout_above="@id/controlPanel"/>
+
+    <!-- ── Tab bar overlay (lớp trên, phía trên) ────────────────────────── -->
+    <LinearLayout
+        android:id="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="#AA000000"
+        android:layout_alignParentTop="true">
+
+        <Button
+            android:id="@+id/btnTabMusic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🎵 NHAC"
+            android:textColor="#AAAAAA"
+            android:backgroundTint="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/btnTabVideo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🎬 VIDEO"
+            android:textColor="#E94560"
+            android:textStyle="bold"
+            android:backgroundTint="@android:color/transparent"/>
+
+        <!-- Nút Mic góc phải -->
+        <Button
+            android:id="@+id/btnMic"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:text="MIC"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#44FFFFFF"/>
+
+    </LinearLayout>
+
+    <!-- ── Control panel overlay (lớp trên, phía dưới) ──────────────────── -->
+    <LinearLayout
+        android:id="@+id/controlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#CC000000"
+        android:padding="8dp"
+        android:layout_alignParentBottom="true">
+
+        <!-- Dòng trạng thái giọng nói -->
+        <TextView
+            android:id="@+id/tvVoiceStatus"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:textColor="#E94560"
+            android:textSize="11sp"
+            android:textStyle="italic"
+            android:text=""/>
+
+        <!-- Tên video + nghệ sĩ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/tvVideoTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Unknown Title"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tvVideoArtist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unknown Artist"
+                android:textColor="#AAAAAA"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <!-- SeekBar tiến trình -->
+        <SeekBar
+            android:id="@+id/seekBarVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="#E94560"
+            android:thumbTint="#E94560"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Thời gian -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/tvVideoCurrentTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0:00"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tvVideoTotalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"/>
+
+        </LinearLayout>
+
+        <!-- Controls + Volume trên 1 hàng ngang -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Nút Prev -->
+            <Button
+                android:id="@+id/btnVideoPrev"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="⏮"
+                android:textSize="16sp"
+                android:backgroundTint="#44FFFFFF"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="6dp"/>
+
+            <!-- Nút Play/Pause -->
+            <Button
+                android:id="@+id/btnVideoPlayPause"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:text="▶"
+                android:textSize="20sp"
+                android:backgroundTint="#E94560"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="6dp"/>
+
+            <!-- Nút Next -->
+            <Button
+                android:id="@+id/btnVideoNext"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="⏭"
+                android:textSize="16sp"
+                android:backgroundTint="#44FFFFFF"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="36dp"
+                android:background="#44FFFFFF"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Volume Down -->
+            <Button
+                android:id="@+id/btnVideoVolumeDown"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:backgroundTint="#44FFFFFF"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- SeekBar Volume -->
+            <SeekBar
+                android:id="@+id/seekBarVideoVolume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="80"
+                android:progressTint="#E94560"
+                android:thumbTint="#E94560"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Volume Percent -->
+            <TextView
+                android:id="@+id/tvVideoVolumePercent"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:text="80%"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Volume Up -->
+            <Button
+                android:id="@+id/btnVideoVolumeUp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:backgroundTint="#44FFFFFF"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
